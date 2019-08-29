@@ -1,2 +1,4 @@
-# Django-React-Todo-API
 Django-React-Todo-API
+
+Username: ariel_gad
+Password: test1234
