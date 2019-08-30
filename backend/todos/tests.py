@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from .models import Todo
 
+
 class TodoModelsTest(TestCase):
 
     @classmethod
