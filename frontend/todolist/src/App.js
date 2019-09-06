@@ -3,35 +3,31 @@ import logo from './logo.svg';
 import './App.css';
 
 
-
-const list = [
-    {
-        "id": 1,
-        "title": "Eat",
-        "description": "need to eat food"
-    },
-    {
-        "id": 2,
-        "title": "Drink",
-        "description": "need to drink watet"
-    }
-];
-
-
 class App extends Component {
 
-    constructor(props) {
-    super(props);
-    this.state = { list };
+    state = {
+        todos: []
+    };
+
+    async componentDidMount() {
+        try {
+            const res = await fetch('http://127.0.0.1:8000/api/');
+            const todos = await res.json();
+            this.setState({
+                todos
+            });
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     render(){
 
         return(
         <div>
-            {this.state.list.map(item => (
-                <div>
-                    <h1><span>{item.id}</span> {item.title}</h1>
+            {this.state.todos.map(item => (
+                <div key={item.id}>
+                    <h1>{item.title}</h1>
                     <span>{item.description}</span>
                 </div>
             ))}
