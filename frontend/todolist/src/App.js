@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Todos from './Todos';
 
 
 class App extends Component {
@@ -23,17 +24,12 @@ class App extends Component {
 
     render(){
 
-        return(
-        <div>
-            {this.state.todos.map(item => (
-                <div key={item.id}>
-                    <h1>{item.title}</h1>
-                    <span>{item.description}</span>
-                </div>
-            ))}
-        </div>
-        );
+         return (
+      <div className="todo-app container">
+      <h1 className="center blue-text">Todo's</h1>
+      <Todos todos={this.state.todos}/>
+      </div>
+    );
     }
 }
-
 export default App;
